@@ -1,4 +1,3 @@
-" this will install vim-plug if not installed
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -18,7 +17,7 @@ endif
 call plug#begin()
 		Plug 'neoclide/coc.nvim',  {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}" this is for auto complete, prettier and tslinting
 
-		let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier']  " list of CoC extensions needed
+		let g:coc_global_extensions = ['coc-clangd', 'coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-java']  " list of CoC extensions needed
 
 		Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 
@@ -85,4 +84,8 @@ call plug#end()
 
 	"-------------------------------------------------------------
 
+  "Competitve Programming------------------------------------------------------------
+	
+	autocmd filetype cpp nnoremap <F5> :!g++ -g --std=c++11 % -o %:r && ./%:r < inp.txt  <CR>
 
+	"-------------------------------------------------------------
